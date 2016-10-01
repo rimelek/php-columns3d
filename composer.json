@@ -1,0 +1,22 @@
+{
+  "name": "rimelek/columns3d",
+  "description": "Library to create 3D-like columns with GD extension",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Takács Ákos",
+      "email": "rimelek@rimelek.hu",
+      "homepage": "http://rimelek.hu"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Rimelek\\Columns3D\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.0",
+    "ext-gd": "*"
+  }
+}
