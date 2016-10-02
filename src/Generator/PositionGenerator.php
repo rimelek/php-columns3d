@@ -42,7 +42,7 @@ class PositionGenerator
      * @param int $to End degree
      * @return \Generator
      */
-    public function __invoke(int $from, int $to)
+    public function call(int $from, int $to)
     {
         for ($alpha = $from; $alpha <= $to; $alpha += $this->step) {
             yield [
@@ -50,5 +50,15 @@ class PositionGenerator
                 (sin(deg2rad($alpha)) * $this->radiusY),
             ];
         }
+    }
+
+    /**
+     * @see call
+     * @param array $args
+     * @return \Generator
+     */
+    public function __invoke(...$args)
+    {
+        yield from call_user_func_array([$this, 'call'], $args);
     }
 }

@@ -31,11 +31,12 @@ class ColumnCircleGenerator
 
     /**
      * @see call
+     * @param array $args
      * @return \Generator
      */
-    public function __invoke()
+    public function __invoke(...$args)
     {
-        yield from call_user_func_array([$this, 'call'], func_get_args());
+        yield from call_user_func_array([$this, 'call'], $args);
     }
 
     /**
