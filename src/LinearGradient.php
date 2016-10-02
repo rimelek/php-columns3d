@@ -54,15 +54,15 @@ class LinearGradient
     }
 
     /**
-     * @param int $width
+     * @param int $size
      * @param int $index
      * @return Color
      */
-    public function calcColorAt(int $width, int $index): Color
+    public function calcColorAt(int $size, int $index): Color
     {
-        $rs = $this->calcRedStep($width);
-        $gs = $this->calcGreenStep($width);
-        $bs = $this->calcBlueStep($width);
+        $rs = $this->calcRedStep($size);
+        $gs = $this->calcGreenStep($size);
+        $bs = $this->calcBlueStep($size);
 
         return new Color(
             round($this->start->getRed() + ($rs * $index)),
@@ -74,13 +74,13 @@ class LinearGradient
     /**
      * Generate all color of the gradient
      *
-     * @param int $width
-     * @return \Generator
+     * @param int $size
+     * @return \Generator|Color[]
      */
-    public function generator(int $width)
+    public function generator(int $size)
     {
-        for ($i = 0; $i < $width; $i++) {
-            yield $this->calcColorAt($width, $i);
+        for ($i = 0; $i < $size; $i++) {
+            yield $this->calcColorAt($size, $i);
         }
     }
 }

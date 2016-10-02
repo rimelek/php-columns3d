@@ -62,7 +62,7 @@ class Canvas
     /**
      * @return resource
      */
-    private function getSource()
+    public function getSource()
     {
         static $source;
         if (!$source) {
