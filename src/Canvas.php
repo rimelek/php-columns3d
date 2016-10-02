@@ -49,8 +49,9 @@ class Canvas
     private function draw()
     {
         $source = $this->getSource();
-        $color = imagecolorallocate($source, 0, 20, 30);
-        imagefill($source, 0, 0, $color);
+        $color = $this->configuration->getColor();
+        $allocatedColor = imagecolorallocate($source, $color->getRed(), $color->getGreen(), $color->getBlue());
+        imagefill($source, 0, 0, $allocatedColor);
 
         foreach ($this->elements as $element) {
             $element->getDrawable()->draw($source, $element->getX(), $element->getY());

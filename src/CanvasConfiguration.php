@@ -26,6 +26,11 @@ class CanvasConfiguration
     private $height = 400;
 
     /**
+     * @var Color
+     */
+    private $color = null;
+
+    /**
      * @return string
      */
     public function getType(): string
@@ -99,5 +104,27 @@ class CanvasConfiguration
         $this->height = $height;
         return $this;
     }
+
+    /**
+     * @return Color
+     */
+    public function getColor(): Color
+    {
+        if ($this->color === null) {
+            $this->setColor(new Color(0, 0, 0));
+        }
+        return $this->color;
+    }
+
+    /**
+     * @param Color $color
+     * @return CanvasConfiguration
+     */
+    public function setColor(Color $color): CanvasConfiguration
+    {
+        $this->color = $color;
+        return $this;
+    }
+
 
 }
