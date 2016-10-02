@@ -9,15 +9,25 @@ class Canvas
     const TYPE_PNG = 'png';
     const TYPE_GIF = 'gif';
 
+    /**
+     * @var CanvasConfiguration
+     */
     private $configuration;
 
-    private $drawn = false;
+    /**
+     * @var bool
+     */
+    private $shown = false;
 
     /**
      * @var PositionedElement[]
      */
     private $elements = [];
 
+    /**
+     * Canvas constructor.
+     * @param CanvasConfiguration $configuration
+     */
     public function __construct(CanvasConfiguration $configuration)
     {
         $this->configuration = $configuration;
@@ -33,20 +43,19 @@ class Canvas
         return $this;
     }
 
+    /**
+     * Draw all of the added drawable elements
+     */
     private function draw()
     {
-        if ($this->drawn) {
-            return;
-        }
         $source = $this->getSource();
         $color = imagecolorallocate($source, 0, 20, 30);
         imagefill($source, 0, 0, $color);
 
         foreach ($this->elements as $element) {
-            $element->getDrawable()->draw($source, $element->getCenterX(), $element->getCenterY());
+            $element->getDrawable()->draw($source, $element->getX(), $element->getY());
         }
         $this->elements = [];
-        $this->drawn = true;
     }
 
     /**
@@ -62,8 +71,19 @@ class Canvas
         return $source;
     }
 
+    /**
+     * Show the created image
+     *
+     * This method sets the 'Content-type' HTTP header
+     *
+     * This method is callable only once. The second call will do nothing.
+     */
     public function show()
     {
+        if ($this->shown) {
+            return;
+        }
+
         $type = $this->configuration->getType();
 
         if (!in_array($type, [self::TYPE_JPEG, self::TYPE_PNG, self::TYPE_GIF], true)) {
@@ -79,5 +99,7 @@ class Canvas
         } else {
             $func($this->getSource());
         }
+
+        $this->shown = true;
     }
 }

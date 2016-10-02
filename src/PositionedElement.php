@@ -5,15 +5,32 @@ namespace Rimelek\Columns3D;
 
 class PositionedElement
 {
+    /**
+     * @var DrawableInterface
+     */
     private $drawable;
-    private $centerX;
-    private $centerY;
 
-    public function __construct(DrawableInterface $drawable, int $centerX, int $centerY)
+    /**
+     * @var int
+     */
+    private $x;
+
+    /**
+     * @var int
+     */
+    private $y;
+
+    /**
+     * PositionedElement constructor.
+     * @param DrawableInterface $drawable
+     * @param int $x
+     * @param int $y
+     */
+    public function __construct(DrawableInterface $drawable, int $x, int $y)
     {
         $this->drawable = $drawable;
-        $this->centerY = $centerY;
-        $this->centerX = $centerX;
+        $this->y = $y;
+        $this->x = $x;
     }
 
     /**
@@ -27,17 +44,17 @@ class PositionedElement
     /**
      * @return int
      */
-    public function getCenterX(): int
+    public function getX(): int
     {
-        return $this->centerX;
+        return $this->x;
     }
 
     /**
      * @return int
      */
-    public function getCenterY(): int
+    public function getY(): int
     {
-        return $this->centerY;
+        return $this->y;
     }
 
 

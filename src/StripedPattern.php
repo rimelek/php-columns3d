@@ -5,6 +5,11 @@ namespace Rimelek\Columns3D;
 
 class StripedPattern implements DrawableInterface
 {
+    /**
+     * @param resource $source
+     * @param int $cx
+     * @param int $cy
+     */
     public function draw($source, int $cx, int $cy)
     {
         $width = $cx * 2;

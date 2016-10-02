@@ -17,10 +17,12 @@ const BIG_COLUMN_VERTICAL_ANGLE = 2 / 8;
 const BIG_COLUMN_RADIUS_X = 130;
 const BIG_COLUMN_RADIUS_Y = BIG_COLUMN_RADIUS_X * BIG_COLUMN_VERTICAL_ANGLE;
 
-const SMALL_COLUMN_STEP = 20;
+
 const SMALL_COLUMN_RADIUS_X = 10;
 const SMALL_COLUMN_RADIUS_Y = SMALL_COLUMN_RADIUS_X * BIG_COLUMN_VERTICAL_ANGLE;
 const SMALL_COLUMN_HEIGHT = 100;
+
+const COLUMN_CIRCLE_STEP = 20;
 
 const CENTER_X = 200;
 
@@ -54,7 +56,7 @@ $canvas->addElement(new PositionedElement($bottomColumn, CENTER_X, 300));
 
 $positionGenerator = new PositionGenerator(
     BIG_COLUMN_RADIUS_X - SMALL_COLUMN_RADIUS_X - 5,
-    BIG_COLUMN_RADIUS_Y - SMALL_COLUMN_RADIUS_Y - 3, SMALL_COLUMN_STEP);
+    BIG_COLUMN_RADIUS_Y - SMALL_COLUMN_RADIUS_Y - 3, COLUMN_CIRCLE_STEP);
 
 $scc = (new ColumnConfiguration())
     ->setRadius(SMALL_COLUMN_RADIUS_X)
@@ -64,15 +66,14 @@ $scc = (new ColumnConfiguration())
     ->setWallGradient(new LinearGradient(new Color(38, 174, 255), new Color(255, 173, 255)))
 ;
 
-$behindColumnCircleGenerator = new ColumnCircleGenerator($positionGenerator, $scc);
-foreach($behindColumnCircleGenerator(210, 360, CENTER_X, 200) as $e) {
+foreach((new ColumnCircleGenerator($positionGenerator, $scc))->call(210, 360, CENTER_X, 200) as $e) {
     $canvas->addElement($e);
 }
 
 $frontColumnCircleGenerator = new ColumnCircleGenerator($positionGenerator,
         (clone $scc)->setWallGradient(new LinearGradient(new Color(13, 223, 255), new Color(255, 225, 255)))
 );
-foreach($frontColumnCircleGenerator(0, 160, CENTER_X, 200) as $e) {
+foreach($frontColumnCircleGenerator->call(0, 160, CENTER_X, 200) as $e) {
     $canvas->addElement($e);
 }
 

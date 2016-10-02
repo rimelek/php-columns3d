@@ -5,8 +5,15 @@ namespace Rimelek\Columns3D;
 
 class Column implements DrawableInterface
 {
+    /**
+     * @var ColumnConfiguration
+     */
     private $configuration;
 
+    /**
+     * Column constructor.
+     * @param ColumnConfiguration $configuration
+     */
     public function __construct(ColumnConfiguration $configuration)
     {
         $this->configuration = $configuration;
@@ -14,9 +21,9 @@ class Column implements DrawableInterface
 
     /**
      * Draw a column
-     * @param resource $source
-     * @param int $cx
-     * @param int $cy
+     * @param resource $source Value returned by imagecreatetruecolor
+     * @param int $cx Position of the column's center horizontally
+     * @param int $cy Position of the center of the ellipse on top of the column vertically
      */
     public function draw($source, int $cx, int $cy)
     {

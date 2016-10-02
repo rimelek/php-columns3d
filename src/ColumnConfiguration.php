@@ -5,14 +5,29 @@ namespace Rimelek\Columns3D;
 
 class ColumnConfiguration
 {
+    /**
+     * @var int
+     */
     private $radius = 150;
 
+    /**
+     * @var int
+     */
     private $height = 300;
 
+    /**
+     * @var float
+     */
     private $verticalAngle = 0.125;
 
+    /**
+     * @var null|LinearGradient
+     */
     private $wallGradient = null;
 
+    /**
+     * @var null|Color
+     */
     private $color = null;
 
     /**

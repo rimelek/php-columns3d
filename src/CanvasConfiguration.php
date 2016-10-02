@@ -34,7 +34,7 @@ class CanvasConfiguration
     }
 
     /**
-     * @param string $type
+     * @param string $type Valid values: {@link Canvas::TYPE_GIF}|{@link Canvas::TYPE_JPEG}|{@link Canvas::TYPE_PNG}
      * @return CanvasConfiguration
      */
     public function setType(string $type): CanvasConfiguration
@@ -52,7 +52,7 @@ class CanvasConfiguration
     }
 
     /**
-     * @param int $quality
+     * @param int $quality Percent.
      * @return CanvasConfiguration
      */
     public function setQuality(int $quality): CanvasConfiguration
@@ -62,7 +62,7 @@ class CanvasConfiguration
     }
 
     /**
-     * Width of the ellipse
+     * Width of the canvas
      * @return int
      */
     public function getWidth(): int
@@ -72,7 +72,7 @@ class CanvasConfiguration
 
     /**
      *
-     * @param int $width Width of the ellipse
+     * @param int $width Width of the canvas
      * @return CanvasConfiguration
      */
     public function setWidth(int $width): CanvasConfiguration
@@ -82,7 +82,7 @@ class CanvasConfiguration
     }
 
     /**
-     * Height of the ellipse
+     * Height of the canvas
      * @return int
      */
     public function getHeight(): int
@@ -91,7 +91,7 @@ class CanvasConfiguration
     }
 
     /**
-     * @param int $height Height of the ellipse
+     * @param int $height Height of the canvas
      * @return CanvasConfiguration
      */
     public function setHeight(int $height): CanvasConfiguration
