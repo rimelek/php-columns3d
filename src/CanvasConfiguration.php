@@ -57,7 +57,7 @@ class CanvasConfiguration
      */
     public function setQuality(int $quality): CanvasConfiguration
     {
-        $this->quality = $quality;
+        $this->quality = max(min($quality, 100), 0);
         return $this;
     }
 

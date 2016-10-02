@@ -1,7 +1,10 @@
 <?php
 
-namespace Rimelek\Columns3D;
+namespace Rimelek\Columns3D\Generator;
 
+use Rimelek\Columns3D\Drawable\Column;
+use Rimelek\Columns3D\Drawable\ColumnConfiguration;
+use Rimelek\Columns3D\PositionedElement;
 
 class ColumnCircleGenerator
 {

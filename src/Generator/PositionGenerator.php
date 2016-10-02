@@ -1,6 +1,6 @@
 <?php
 
-namespace Rimelek\Columns3D;
+namespace Rimelek\Columns3D\Generator;
 
 
 class PositionGenerator

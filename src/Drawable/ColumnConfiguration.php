@@ -1,7 +1,10 @@
 <?php
 
-namespace Rimelek\Columns3D;
+namespace Rimelek\Columns3D\Drawable;
 
+
+use Rimelek\Columns3D\Color;
+use Rimelek\Columns3D\LinearGradient;
 
 class ColumnConfiguration
 {

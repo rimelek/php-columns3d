@@ -1,13 +1,13 @@
 <?php
 
-use Rimelek\Columns3D\Column;
+use Rimelek\Columns3D\Drawable\Column;
 use Rimelek\Columns3D\Canvas;
-use Rimelek\Columns3D\ColumnConfiguration;
+use Rimelek\Columns3D\Drawable\ColumnConfiguration;
 use Rimelek\Columns3D\CanvasConfiguration;
 use Rimelek\Columns3D\PositionedElement;
-use Rimelek\Columns3D\PositionGenerator;
-use Rimelek\Columns3D\ColumnCircleGenerator;
-use Rimelek\Columns3D\StripedPattern;
+use Rimelek\Columns3D\Generator\PositionGenerator;
+use Rimelek\Columns3D\Generator\ColumnCircleGenerator;
+use Rimelek\Columns3D\Drawable\StripedPattern;
 use Rimelek\Columns3D\Color;
 use Rimelek\Columns3D\LinearGradient;
 

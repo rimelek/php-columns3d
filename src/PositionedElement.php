@@ -3,6 +3,8 @@
 namespace Rimelek\Columns3D;
 
 
+use Rimelek\Columns3D\Drawable\DrawableInterface;
+
 class PositionedElement
 {
     /**
